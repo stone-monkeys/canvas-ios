@@ -218,7 +218,12 @@
 		E8C6F52B23D63BCD0086B865 /* LoginFindSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCF0F4622F8A0A0000AACCE /* LoginFindSchoolTests.swift */; };
 		E8DB184F24C7883B0042D6D7 /* DashboardE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB184E24C7883B0042D6D7 /* DashboardE2ETests.swift */; };
 		E8EA860B2304974C00E4FD76 /* NotificationsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA860A2304974C00E4FD76 /* NotificationsListTests.swift */; };
+		EB28CFEB29ACF3B900485981 /* StudentWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28CFEA29ACF3B900485981 /* StudentWatchApp.swift */; };
+		EB28CFED29ACF3B900485981 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28CFEC29ACF3B900485981 /* ContentView.swift */; };
+		EB28CFEF29ACF3BB00485981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB28CFEE29ACF3BB00485981 /* Assets.xcassets */; };
+		EB28CFF229ACF3BB00485981 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB28CFF129ACF3BB00485981 /* Preview Assets.xcassets */; };
 		EB3ECFCA26375AF100289506 /* SideMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ECFC926375AF100289506 /* SideMenuUITests.swift */; };
+		EBD9CFE529B4EF1000F216BD /* Canvas Student.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EB28CFE829ACF3B900485981 /* Canvas Student.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1FDF738C22DCB5A94323B15 /* Pods_defaults_Student.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CB0F553F9954BEE58A730D /* Pods_defaults_Student.framework */; };
 /* End PBXBuildFile section */
 
@@ -257,6 +262,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 492704721CF4AF7100C631C6;
 			remoteInfo = Student;
+		};
+		EBD9CFE629B4EF1100F216BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4927046B1CF4AF7100C631C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB28CFE729ACF3B900485981;
+			remoteInfo = "Student Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -307,6 +319,17 @@
 				E8C6F4FC23D626220086B865 /* TestsFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBD9CFE829B4EF1100F216BD /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EBD9CFE529B4EF1000F216BD /* Canvas Student.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -809,7 +832,14 @@
 		E8EA860A2304974C00E4FD76 /* NotificationsListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsListTests.swift; sourceTree = "<group>"; };
 		E8EA860D230497AC00E4FD76 /* PeopleE2ETests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleE2ETests.swift; sourceTree = "<group>"; };
 		E8EA86122304980000E4FD76 /* QuizzesE2ETests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzesE2ETests.swift; sourceTree = "<group>"; };
+		EB28CFE829ACF3B900485981 /* Canvas Student.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas Student.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB28CFEA29ACF3B900485981 /* StudentWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentWatchApp.swift; sourceTree = "<group>"; };
+		EB28CFEC29ACF3B900485981 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB28CFEE29ACF3BB00485981 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB28CFF129ACF3BB00485981 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB28CFF629AE3D8E00485981 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3ECFC926375AF100289506 /* SideMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITests.swift; sourceTree = "<group>"; };
+		EBD9CFE429B4ECB300F216BD /* Student-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Student-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EC9D739AAC5FF4C6AAF4F8A7 /* Pods_needs_pspdfkit_StudentE2ETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_needs_pspdfkit_StudentE2ETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A705E826B362C3490B4183 /* Pods-defaults-common_tests-CanvasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-common_tests-CanvasTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-defaults-common_tests-CanvasTests/Pods-defaults-common_tests-CanvasTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -878,6 +908,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB28CFE529ACF3B900485981 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -916,6 +953,7 @@
 				7DCF0F7622F8A0A0000AACCE /* StudentE2ETests */,
 				B1BB7A8322BAC820006CA068 /* SubmitAssignment */,
 				D9FD8F2F2546C39D00C6842B /* Widgets */,
+				EB28CFE929ACF3B900485981 /* Student Watch App */,
 				492704741CF4AF7100C631C6 /* Products */,
 				5B0FCCDFB07A88D993D5871D /* Frameworks */,
 				3BFCA4310566C5CB96383521 /* Pods */,
@@ -931,6 +969,7 @@
 				7DC5717022F8B16200F2E9BB /* StudentUITests.xctest */,
 				E8C6F50023D626220086B865 /* StudentE2ETests.xctest */,
 				D9FD8F342546C3F300C6842B /* Widgets.appex */,
+				EB28CFE829ACF3B900485981 /* Canvas Student.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -975,6 +1014,7 @@
 		5B0FCCDFB07A88D993D5871D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB28CFF629AE3D8E00485981 /* Core.framework */,
 				CF4A448D254700D600F76207 /* Core.framework */,
 				D9FD900F2546CB4C00C6842B /* Core.framework */,
 				2C67B0C51E01F05A00DDD191 /* AssetsLibrary.framework */,
@@ -1999,6 +2039,26 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		EB28CFE929ACF3B900485981 /* Student Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				EBD9CFE429B4ECB300F216BD /* Student-Watch-App-Info.plist */,
+				EB28CFEA29ACF3B900485981 /* StudentWatchApp.swift */,
+				EB28CFEC29ACF3B900485981 /* ContentView.swift */,
+				EB28CFEE29ACF3BB00485981 /* Assets.xcassets */,
+				EB28CFF029ACF3BB00485981 /* Preview Content */,
+			);
+			path = "Student Watch App";
+			sourceTree = "<group>";
+		};
+		EB28CFF029ACF3BB00485981 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EB28CFF129ACF3BB00485981 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		EB3ECFC826375ABA00289506 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2024,12 +2084,14 @@
 				492704B71CF4B6D700C631C6 /* Embed Frameworks */,
 				B0C8BDFA0291149E97BCF90D /* [CP] Embed Pods Frameworks */,
 				3B6DCCB51FB502CE005EE8D2 /* Embed Foundation Extensions */,
+				EBD9CFE829B4EF1100F216BD /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B1BB7A8B22BAC820006CA068 /* PBXTargetDependency */,
 				D9FD8F402546C3F500C6842B /* PBXTargetDependency */,
+				EBD9CFE729B4EF1100F216BD /* PBXTargetDependency */,
 			);
 			name = Student;
 			packageProductDependencies = (
@@ -2138,13 +2200,30 @@
 			productReference = E8C6F50023D626220086B865 /* StudentE2ETests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EB28CFE729ACF3B900485981 /* Student Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB28CFF529ACF3BB00485981 /* Build configuration list for PBXNativeTarget "Student Watch App" */;
+			buildPhases = (
+				EB28CFE429ACF3B900485981 /* Sources */,
+				EB28CFE529ACF3B900485981 /* Frameworks */,
+				EB28CFE629ACF3B900485981 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Student Watch App";
+			productName = "icanvasWatch Watch App";
+			productReference = EB28CFE829ACF3B900485981 /* Canvas Student.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4927046B1CF4AF7100C631C6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Instructure;
 				TargetAttributes = {
@@ -2197,6 +2276,9 @@
 					};
 					E8C6F4CF23D626220086B865 = {
 						TestTargetID = 492704721CF4AF7100C631C6;
+					};
+					EB28CFE729ACF3B900485981 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -2279,6 +2361,7 @@
 				7DC5716F22F8B16200F2E9BB /* StudentUITests */,
 				E8C6F4CF23D626220086B865 /* StudentE2ETests */,
 				D9FD8F332546C3F300C6842B /* Widgets */,
+				EB28CFE729ACF3B900485981 /* Student Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -2355,6 +2438,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB28CFE629ACF3B900485981 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB28CFF229ACF3BB00485981 /* Preview Assets.xcassets in Resources */,
+				EB28CFEF29ACF3BB00485981 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2951,6 +3043,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB28CFE429ACF3B900485981 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB28CFED29ACF3B900485981 /* ContentView.swift in Sources */,
+				EB28CFEB29ACF3B900485981 /* StudentWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2978,6 +3079,11 @@
 			isa = PBXTargetDependency;
 			target = 492704721CF4AF7100C631C6 /* Student */;
 			targetProxy = E8C6F4D123D626220086B865 /* PBXContainerItemProxy */;
+		};
+		EBD9CFE729B4EF1100F216BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB28CFE729ACF3B900485981 /* Student Watch App */;
+			targetProxy = EBD9CFE629B4EF1100F216BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3763,6 +3869,84 @@
 			};
 			name = Release;
 		};
+		EB28CFF329ACF3BB00485981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Student Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = B6333T4PXQ;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Student-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.instructure.icanvas;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instructure.icanvas.watchkitapp;
+				PRODUCT_NAME = "Canvas Student";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		EB28CFF429ACF3BB00485981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Student Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = B6333T4PXQ;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Student-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.instructure.icanvas;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instructure.icanvas.watchkitapp;
+				PRODUCT_NAME = "Canvas Student";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3825,6 +4009,15 @@
 			buildConfigurations = (
 				E8C6F4FE23D626220086B865 /* Debug */,
 				E8C6F4FF23D626220086B865 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB28CFF529ACF3BB00485981 /* Build configuration list for PBXNativeTarget "Student Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB28CFF329ACF3BB00485981 /* Debug */,
+				EB28CFF429ACF3BB00485981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

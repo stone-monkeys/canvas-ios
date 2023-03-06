@@ -18,8 +18,9 @@
 
 import Combine
 import SwiftUI
+import WatchConnectivity
 
-class DashboardCardsViewModel: ObservableObject {
+class DashboardCardsViewModel: NSObject, ObservableObject {
     public enum ViewModelState<T: Equatable>: Equatable {
         case loading
         case empty
@@ -40,13 +41,22 @@ class DashboardCardsViewModel: ObservableObject {
     private var needsRefresh = false
     private var subscriptions = Set<AnyCancellable>()
     private let courseSectionStatus = CourseSectionStatus()
+    private let session: WCSession = .default
 
     public init(showOnlyTeacherEnrollment: Bool) {
         self.showOnlyTeacherEnrollment = showOnlyTeacherEnrollment
+        super.init()
+        setupWatchConnectivity()
         NotificationCenter.default.publisher(for: .favoritesDidChange)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.favoritesDidChange() }
             .store(in: &subscriptions)
+    }
+
+    func setupWatchConnectivity() {
+        self.session.delegate = self
+        session.activate()
+        session.delegate = self
     }
 
     public func refresh(onComplete: (() -> Void)? = nil) {
@@ -80,6 +90,7 @@ class DashboardCardsViewModel: ObservableObject {
         }
 
         let cards = filteredCards()
+        send(courses: cards.compactMap { $0.course })
         state = cards.isEmpty ? .empty : .data(cards)
         shouldShowSettingsButton = !cards.isEmpty
     }
@@ -93,4 +104,42 @@ class DashboardCardsViewModel: ObservableObject {
 
         return filteredCards
     }
+}
+
+extension DashboardCardsViewModel: WCSessionDelegate {
+
+    func sendMessageToWatch(_ message: [String: Any]) {
+        if session.isReachable {
+            session.sendMessage(message, replyHandler: nil, errorHandler: nil)
+        }
+    }
+
+    func send(courses: [Course]) {
+        sendMessageToWatch(["courses": courses.map { convert($0) }])
+    }
+
+    func convert(_ course: Course) -> WatchCourse {
+        WatchCourse(id: ID(course.id), name: course.name ?? "", code: course.termName ?? "", grade: course.displayGrade, colorHex: course.courseColor, imageURL: course.imageDownloadURL)
+    }
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("iOS WCSession active")
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("iOS WCSession inactive")
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("iOS WCSession deactivated")
+    }
+}
+
+struct WatchCourse: Codable, Identifiable {
+    var id: ID
+    let name: String
+    let code: String
+    let grade: String?
+    let colorHex: String?
+    let imageURL: URL?
 }
