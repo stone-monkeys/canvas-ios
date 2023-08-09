@@ -114,6 +114,8 @@
 		8B9846132A77BDE5003E1E9F /* CoreTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9846122A77BDE5003E1E9F /* CoreTestsHelper.swift */; };
 		8B9846302A7ABBEF003E1E9F /* CalendarAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B98462F2A7ABBEF003E1E9F /* CalendarAppHelper.swift */; };
 		8B9846322A7ABC22003E1E9F /* SafariAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9846312A7ABC22003E1E9F /* SafariAppHelper.swift */; };
+		8B9846472A824067003E1E9F /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9846462A824067003E1E9F /* NotificationsHelper.swift */; };
+		8B98464B2A824220003E1E9F /* UpdateDSCalendarEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B98464A2A824220003E1E9F /* UpdateDSCalendarEventRequest.swift */; };
 		8C02370D294ADC5E03166916 /* CreateDSQuizQuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B1EFA2EB914E415CCFACDB /* CreateDSQuizQuestionRequest.swift */; };
 		8CE7A795708CBCF4AF7A2674 /* DSModuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F69E1EBE6B486730AE73F45 /* DSModuleItem.swift */; };
 		8CEEA54DE127851FF426490F /* CreateDSDiscussionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D6E99369534DE2260DD4EB /* CreateDSDiscussionRequest.swift */; };
@@ -315,6 +317,8 @@
 		8B9846122A77BDE5003E1E9F /* CoreTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTestsHelper.swift; sourceTree = "<group>"; };
 		8B98462F2A7ABBEF003E1E9F /* CalendarAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAppHelper.swift; sourceTree = "<group>"; };
 		8B9846312A7ABC22003E1E9F /* SafariAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariAppHelper.swift; sourceTree = "<group>"; };
+		8B9846462A824067003E1E9F /* NotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
+		8B98464A2A824220003E1E9F /* UpdateDSCalendarEventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDSCalendarEventRequest.swift; sourceTree = "<group>"; };
 		8E046239E00E2F114C950D3A /* ModuleFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFixture.swift; sourceTree = "<group>"; };
 		8E52A6F60DF961A9FB652399 /* DSSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSubmission.swift; sourceTree = "<group>"; };
 		8EB01A67D620697DB09B6F61 /* CreateDSAccountNotificationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDSAccountNotificationRequest.swift; sourceTree = "<group>"; };
@@ -626,6 +630,7 @@
 				8B9845DB2A72897B003E1E9F /* LoginHelper.swift */,
 				8B9845D92A72897B003E1E9F /* ModulesHelper.swift */,
 				8B9845D72A72897B003E1E9F /* NewQuizzesHelper.swift */,
+				8B9846462A824067003E1E9F /* NotificationsHelper.swift */,
 				8B9845DA2A72897B003E1E9F /* PagesHelper.swift */,
 				8B9845DC2A72897C003E1E9F /* PeopleHelper.swift */,
 				8B9845E72A72897C003E1E9F /* ProfileHelper.swift */,
@@ -759,6 +764,7 @@
 				FBCE6E0B51D949166BAE7489 /* CreateDSCalendarEventRequest.swift */,
 				8A068B0E01FE8DF60B7EB29C /* DataSeeder+DSCalendarEvent.swift */,
 				33D0FBC8BBD4B45AABA77089 /* DSCalendarEvent.swift */,
+				8B98464A2A824220003E1E9F /* UpdateDSCalendarEventRequest.swift */,
 			);
 			path = CalendarEvent;
 			sourceTree = "<group>";
@@ -1108,6 +1114,7 @@
 				7404229B37645B502B7E1FF3 /* DataSeeder+Tabs.swift in Sources */,
 				2C36C035542146853DC5BA05 /* DataSeeder.swift in Sources */,
 				1B68337DF3938EB526F74BB3 /* DateExtensions.swift in Sources */,
+				8B98464B2A824220003E1E9F /* UpdateDSCalendarEventRequest.swift in Sources */,
 				8B9845F02A72897C003E1E9F /* InboxHelper.swift in Sources */,
 				CB3E304F604F0F5356207D04 /* DiscussionFixture.swift in Sources */,
 				258D2D5DF28E9EBAFF974F9C /* E2ETestCase.swift in Sources */,
@@ -1157,6 +1164,7 @@
 				694C0903383535038FC95B85 /* SearchRecipientFixture.swift in Sources */,
 				D0AD7CA468E4625FD2087FD0 /* SetDSFeatureFlagRequest.swift in Sources */,
 				8B9846002A73C716003E1E9F /* SettingsHelper.swift in Sources */,
+				8B9846472A824067003E1E9F /* NotificationsHelper.swift in Sources */,
 				29C0BB4FE112AEDA68383D14 /* SubmissionCommentFixture.swift in Sources */,
 				F0C0C0C26ED553D327017F63 /* SubmissionFixture.swift in Sources */,
 				97ABA64DE07E931046AEE920 /* SubmissionListFixture.swift in Sources */,

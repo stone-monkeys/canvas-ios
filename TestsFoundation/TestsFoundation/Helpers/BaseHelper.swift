@@ -33,7 +33,7 @@ open class BaseHelper {
         public static var dashboardTab: XCUIElement { app.find(id: "TabBar.dashboardTab", type: .button) }
         public static var calendarTab: XCUIElement { app.find(id: "TabBar.calendarTab", type: .button) }
         public static var todoTab: XCUIElement { app.find(id: "TabBar.todoTab", type: .button) }
-        public static var notificationsTab: XCUIElement { app.find(id: "notificationsTab", type: .button) }
+        public static var notificationsTab: XCUIElement { app.find(id: "TabBar.notificationsTab", type: .button) }
         public static var inboxTab: XCUIElement { app.find(id: "TabBar.inboxTab", type: .button) }
 
         // Parent

@@ -251,4 +251,11 @@ public class CalendarHelper: BaseHelper {
         let requestBody = CreateDSCalendarEventRequest.Body(calendar_event: calendarEvent)
         return seeder.createCalendarEvent(requestBody: requestBody)
     }
+
+    @discardableResult
+    public static func updateCalendarEventDate(course: DSCourse, event: DSCalendarEvent, startAt: String, endAt: String) -> DSCalendarEvent {
+        let calendarEvent = UpdateDSCalendarEventRequest.RequestedDSCalendarEvent(courseId: course.id, start_at: startAt, end_at: endAt)
+        let requestedBody = UpdateDSCalendarEventRequest.Body(calendar_event: calendarEvent)
+        return seeder.updateCalendarEvent(requestBody: requestedBody, event: event)
+    }
 }

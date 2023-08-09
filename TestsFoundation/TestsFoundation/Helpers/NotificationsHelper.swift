@@ -16,16 +16,18 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-extension DataSeeder {
-    @discardableResult
-    public func createCalendarEvent(requestBody: CreateDSCalendarEventRequest.Body) -> DSCalendarEvent {
-        let request = CreateDSCalendarEventRequest(body: requestBody)
-        return makeRequest(request)
-    }
+public class NotificationsHelper: BaseHelper {
+    public static var navBar: XCUIElement { app.find(id: "Notifications") }
 
-    @discardableResult
-    public func updateCalendarEvent(requestBody: UpdateDSCalendarEventRequest.Body, event: DSCalendarEvent) -> DSCalendarEvent {
-        let request = UpdateDSCalendarEventRequest(body: requestBody, eventId: event.id)
-        return makeRequest(request)
+    public struct CourseInvitation {
+        public static var youHaveBeenInvited: XCUIElement { app.find(label: "You have been invited", type: .staticText) }
+
+        public static func acceptButton(enrollment: DSEnrollment) -> XCUIElement {
+            return app.find(id: "CourseInvitation.\(enrollment.id).acceptButton")
+        }
+
+        public static func declineButton(enrollment: DSEnrollment) -> XCUIElement {
+            return app.find(id: "CourseInvitation.\(enrollment.id).rejectButton")
+        }
     }
 }

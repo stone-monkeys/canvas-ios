@@ -46,11 +46,20 @@ public class GradesHelper: BaseHelper {
         return totalGrade.waitUntil(.label(expected: value)).isVisible
     }
 
+    @discardableResult
+    public static func createSubmission(as student: DSUser,
+                                        in course: DSCourse,
+                                        for assignment: DSAssignment,
+                                        submissionBody: String? = nil) -> DSSubmission {
+        let body = submissionBody ?? "This is a submission for \(assignment.name)"
+        let requestBody = CreateDSSubmissionRequest.RequestedDSSubmission(submission_type: .online_text_entry,
+                                                                          body: body,
+                                                                          user_id: student.id)
+        return seeder.createSubmission(courseId: course.id, assignmentId: assignment.id, requestBody: requestBody)
+    }
+
     public static func createSubmissionsForAssignments(course: DSCourse, student: DSUser, assignments: [DSAssignment]) {
-        for assignment in assignments {
-            seeder.createSubmission(courseId: course.id, assignmentId: assignment.id, requestBody:
-                .init(submission_type: .online_text_entry, body: "This is a submission body", user_id: student.id))
-        }
+        for assignment in assignments { createSubmission(as: student, in: course, for: assignment) }
     }
 
     public static func createAssignments(course: DSCourse, count: Int, points_possible: [Float]? = nil, grading_type: GradingType? = nil) -> [DSAssignment] {
@@ -69,13 +78,13 @@ public class GradesHelper: BaseHelper {
         return assignments
     }
 
+    public static func gradeSubmission(grade: String, in course: DSCourse, for assignment: DSAssignment, of student: DSUser) {
+        seeder.postGrade(courseId: course.id, assignmentId: assignment.id, userId: student.id, requestBody: .init(posted_grade: grade))
+    }
+
     public static func gradeAssignments(grades: [String], course: DSCourse, assignments: [DSAssignment], user: DSUser) {
         for i in 0..<assignments.count {
-            seeder.postGrade(
-                courseId: course.id,
-                assignmentId: assignments[i].id,
-                userId: user.id,
-                requestBody: .init(posted_grade: grades[i]))
+            gradeSubmission(grade: grades[i], in: course, for: assignments[i], of: user)
         }
     }
 
