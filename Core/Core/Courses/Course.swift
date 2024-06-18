@@ -175,19 +175,22 @@ extension Course {
     }()
 
     public var displayGrade: String {
+        return Self.calculateTotalGrade(course: self, enrollments: Array(self.enrollments ?? []), baseOnGradedAssignments: true) ?? "Bukta"
+
         guard let enrollments = self.enrollments, let enrollment = enrollments.filter({ $0.isStudent }).first else {
             return ""
         }
 
-        var grade = enrollment.computedCurrentGrade
-        var score = enrollment.computedCurrentScore
+        let gradingPeriod = enrollment.currentGradingPeriodID
+        var grade = enrollment.finalGrade(gradingPeriodID: gradingPeriod)
+        var score = enrollment.finalScore(gradingPeriodID: gradingPeriod)
 
         if enrollment.multipleGradingPeriodsEnabled && enrollment.currentGradingPeriodID != nil {
-            grade = enrollment.currentPeriodComputedCurrentGrade
-            score = enrollment.currentPeriodComputedCurrentScore
+            grade = enrollment.currentGrade(gradingPeriodID: gradingPeriod)
+            score = enrollment.currentScore
         } else if enrollment.multipleGradingPeriodsEnabled && enrollment.totalsForAllGradingPeriodsOption {
-            grade = enrollment.computedCurrentGrade
-            score = enrollment.computedCurrentScore
+            grade = enrollment.finalGrade(gradingPeriodID: gradingPeriod)
+            score = enrollment.finalScore(gradingPeriodID: gradingPeriod)
         } else if enrollment.multipleGradingPeriodsEnabled && enrollment.totalsForAllGradingPeriodsOption == false {
             return String(localized: "N/A", bundle: .core)
         }
@@ -205,6 +208,81 @@ extension Course {
         }
 
         return scoreString
+    }
+
+    private static func calculateTotalGrade(
+        course: Course,
+        enrollments: [Enrollment],
+        baseOnGradedAssignments: Bool
+    ) -> String? {
+        let userID = AppEnvironment.shared.currentSession?.userID
+        let courseEnrollment = course.enrollmentForGrades(userId: userID)
+        let gradeEnrollment = enrollments.first {
+            $0.id != nil &&
+                $0.state == .active &&
+                $0.userID == userID &&
+                $0.type.lowercased().contains("student")
+        }
+        let gradingPeriodID = gradeEnrollment?.currentGradingPeriodID
+        let hideQuantitativeData = course.hideQuantitativeData == true
+
+        // When these conditions are met we don't show any grade, instead we display a lock icon.
+        if (courseEnrollment?.multipleGradingPeriodsEnabled == true &&
+           courseEnrollment?.totalsForAllGradingPeriodsOption == false &&
+            gradingPeriodID == nil) || course.hideFinalGrades {
+            return nil
+        } else if hideQuantitativeData {
+            if let gradingPeriodID = gradingPeriodID {
+                if let letterGrade = gradeEnrollment?.currentGrade(gradingPeriodID: gradingPeriodID) ?? gradeEnrollment?.finalGrade(gradingPeriodID: gradingPeriodID) {
+                    return letterGrade
+                } else {
+                    return gradeEnrollment?.convertedLetterGrade(
+                        gradingPeriodID: gradingPeriodID,
+                        gradingScheme: course.gradingScheme
+                    )
+                }
+            } else {
+                if courseEnrollment?.multipleGradingPeriodsEnabled == true, courseEnrollment?.totalsForAllGradingPeriodsOption == false {
+                    return nil
+                } else if let letterGrade = courseEnrollment?.computedCurrentGrade ?? courseEnrollment?.computedFinalGrade ?? courseEnrollment?.computedCurrentLetterGrade {
+                    return letterGrade
+                } else {
+                    return courseEnrollment?.convertedLetterGrade(
+                        gradingPeriodID: nil,
+                        gradingScheme: course.gradingScheme
+                    )
+                }
+            }
+        } else {
+            var letterGrade: String?
+            var localGrade: String?
+            if let gradingPeriodID = gradingPeriodID {
+                if baseOnGradedAssignments {
+                    localGrade = gradeEnrollment?.formattedCurrentScore(gradingPeriodID: gradingPeriodID)
+                    letterGrade = gradeEnrollment?.currentGrade(gradingPeriodID: gradingPeriodID)
+                } else {
+                    localGrade = gradeEnrollment?.formattedFinalScore(gradingPeriodID: gradingPeriodID)
+                    letterGrade = gradeEnrollment?.finalGrade(gradingPeriodID: gradingPeriodID)
+                }
+            } else {
+                if baseOnGradedAssignments {
+                    localGrade = courseEnrollment?.formattedCurrentScore(gradingPeriodID: nil)
+                } else {
+                    localGrade = gradeEnrollment?.formattedFinalScore(gradingPeriodID: nil)
+                }
+                if courseEnrollment?.multipleGradingPeriodsEnabled == true, courseEnrollment?.totalsForAllGradingPeriodsOption == false {
+                    letterGrade = nil
+                } else {
+                    letterGrade = courseEnrollment?.computedCurrentGrade ?? courseEnrollment?.computedFinalGrade ?? courseEnrollment?.computedCurrentLetterGrade
+                }
+            }
+
+            if let scoreText = localGrade, let letterGrade = letterGrade {
+                return (scoreText + " (\(letterGrade))")
+            } else {
+                return localGrade
+            }
+        }
     }
 
     public var hideQuantitativeData: Bool {
