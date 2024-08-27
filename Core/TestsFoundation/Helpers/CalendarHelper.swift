@@ -69,6 +69,9 @@ public class CalendarHelper: BaseHelper {
     }
 
     public static func eventCellByIndex(index: Int) -> XCUIElement {
+        waitUntil {
+            app.findAll(idStartingWith: "PlannerList.event.").count < index + 1
+        }
         return app.findAll(idStartingWith: "PlannerList.event.")[index]
     }
 
